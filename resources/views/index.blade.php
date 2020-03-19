@@ -13,7 +13,7 @@
                                 {{ $node->name }}
                                 <ul>
                                     @foreach($categories as $category)
-                                            @if($category->node == $node->name)
+                                            @if($category->node == $node->id)
                                             <li>
                                                 {{ $category->name }}
                                             </li>

@@ -18,7 +18,7 @@ class CategoryController extends Controller
     {
         //
         $nodes = Category::where('node', null)->get();
-        $categories = Category::where('node', '!=', null )->get();
+        $categories = Category::where('node' ,'!=', null)->get();
         return view('index')->with('nodes', $nodes)->with('categories', $categories);
     }
 
@@ -29,8 +29,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //        
-        return view('store');
+        //
+        $nodes = Category::where('node', null)->get();
+        return view('store')->with('nodes', $nodes);
     }
 
     /**
@@ -43,12 +44,13 @@ class CategoryController extends Controller
     {
         //
         $data = $request->validated();
+
         $category = new Category();
         $category->name = $data['inputName'];
         $category->description = $data['inputDescription'];
         $category->node = $data['inputNode'];
         $category->save();
-        return Redirect::route('categories.index');
+return Redirect::route('categories.index');
     }
 
     /**

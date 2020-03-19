@@ -19,8 +19,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputNode">Nodo: </label>
-                                <input type="text" class="form-control" id="inputNode", name="inputNode">
-                            </div>
+                                <select id="inputNode" class="form-control" name="inputNode">
+                                  <option value="" selected>Seleccione una Categoria</option>
+                                  @foreach ($nodes as $value)
+                                    <option value={{$value->id}}>{{ $value->name}}</option>
+                                  @endforeach
+                                </select>
+                              </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
                 </div>
