@@ -6,10 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Categorias</div>
-
                 <div class="card-body">
-                        <form method="POST" action="{{ route('categories.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" file="true">
-                        @csrf
+                  <form method="POST" action="{{ route('categories.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" file="true">
+                    @csrf
                         <div class="form-group">
                             <label for="inputName">Nombre: </label>
                             <input type="text" class="form-control" id="inputName", name="inputName">
