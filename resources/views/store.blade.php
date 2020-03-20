@@ -21,7 +21,7 @@
                                 <label for="inputNode">Nodo: </label>
                                 <select id="inputNode" class="form-control" name="inputNode">
                                   <option value="" selected>Seleccione una Categoria</option>
-                                  @foreach ($nodes as $value)
+                                  @foreach ($categories as $value)
                                     <option value={{$value->id}}>{{ $value->name}}</option>
                                   @endforeach
                                 </select>

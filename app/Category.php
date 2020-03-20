@@ -12,4 +12,9 @@ class Category extends Model
         'description',
         'node',
     ];
+
+public function nodes ()
+{
+  return $this->hasMany(Category::class, 'node');
+}
 }

@@ -17,9 +17,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $nodes = Category::where('node', null)->get();
-        $categories = Category::where('node' ,'!=', null)->get();
-        return view('index')->with('nodes', $nodes)->with('categories', $categories);
+        $categories = Category::all();
+        return view('index')->with('categories', $categories);
     }
 
     /**
@@ -30,8 +29,8 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        $nodes = Category::where('node', null)->get();
-        return view('store')->with('nodes', $nodes);
+        $categories = Category::all();
+        return view('store')->with('categories', $categories);
     }
 
     /**

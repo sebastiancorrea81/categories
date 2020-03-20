@@ -8,19 +8,17 @@
                 <a class="btn btn-primary" href={{ route('categories.create') }} role="button">Agregar Categoria</a>
                 <div class="card-body">
                     <ul>
-                        @foreach($nodes as $node)
+                        @foreach($categories as $category)
+                          @if($category->node == null)
                             <li>
-                                {{ $node->name }}
+                                {{ $category->name }}
                                 <ul>
-                                    @foreach($categories as $category)
-                                            @if($category->node == $node->id)
-                                            <li>
-                                                {{ $category->name }}
-                                            </li>
-                                            @endif
-                                    @endforeach
+                                  @if(count($category->nodes))
+                                    @include('subcategory',['nodes' => $category->nodes])
+                                  @endif
                                 </ul>
                             </li>
+                              @endif
                         @endforeach
                     </ul>
                 </div>
